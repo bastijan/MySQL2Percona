@@ -4,7 +4,6 @@
 #
 # Sasa Jovanovic
 # http://adbuka.com
-#
 
 # Am I root?
 if [ "x$(id -u)" != 'x0' ]; then
