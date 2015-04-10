@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 # MySQL to Percona upgrade script
 # Debian and Ubuntu
 #
@@ -14,7 +14,18 @@ fi
 # Take Database Dump
 # Database dump will be saved in /var/www/mysqldump
 wget https://raw.githubusercontent.com/MiteshShah/admin/master/backup/mysqldump.sh
-bash mysqldump.sh
+
+
+output_var=$(bash mysqldump.sh)
+
+if echo $output_var | grep -wi "error\|not\|warning\|cannot" ; then
+  echo "Backup Failed"
+  exit 1
+else
+  echo "Backup Finished"
+fi
+
+echo "$output_var"
 
 #run both 
 service mysql stop
