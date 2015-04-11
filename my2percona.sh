@@ -43,8 +43,8 @@ apt-get autoremove
 apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
 
 #Add to /etc/apt/sources.list
-echo "deb http://repo.percona.com/apt "$(lsb_release -sc)" main" >>  /etc/apt/sources.list
-echo "deb-src http://repo.percona.com/apt "$(lsb_release -sc)" main" >> /etc/apt/sources.list
+echo "deb http://repo.percona.com/apt "$(lsb_release -sc)" main"  >> /etc/apt/sources.list.d/percona.list
+echo "deb-src http://repo.percona.com/apt "$(lsb_release -sc)" main" >> /etc/apt/sources.list.d/percona.list
 
 #install percona server
 apt-get update
